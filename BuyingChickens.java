@@ -16,7 +16,7 @@ import java.util.Scanner; // import scanner class
 
 public class BuyingChickens {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in); // Scanner for inputs
+        Scanner input = new Scanner(System.in); // Scanner object
         boolean buyMoreChickens = true; // Boolean controlled loop
 
 // Call Method to print welcome to chcken store
@@ -28,7 +28,7 @@ public class BuyingChickens {
             float expectedEggs = calculateExpectedEggs(chickenBreed, healthQuality); // calculates expected eggs based on chicken breed*health
             String keepOrFry = decideKeepOrFry(expectedEggs); // determins value of chicken
         
-    // Final chicken report
+    // Display Final chicken report
             System.out.println("Final Chicken Report:");
             System.out.print("Expected eggs per year: " + expectedEggs);
             System.out.print("\nThis chicken has " + keepOrFry);
@@ -57,11 +57,14 @@ public class BuyingChickens {
     }
 
 // Method: welcomeMessage
+// Displayes a welcome message to the user
     public static void welcomeMessage () {
         System.out.println("Welcome to the chicken store!");
     }
 
 // Method: getChickenBreed
+// prompts user to select a chicken breed
+// reutrn selection as int 1-3
     public static int getChickenBreed() {
         Scanner input = new Scanner(System.in);
         int breed;
@@ -86,6 +89,8 @@ public class BuyingChickens {
     }
 
 // Method: getHealthQuality
+// prompts user to select health of chicjken
+// return selection as int 0-3
     public static int getHealthQuality() {
         Scanner input = new Scanner(System.in);
         int health;
@@ -111,6 +116,8 @@ public class BuyingChickens {
     }
 
 // Method: calculateExpectedEggs (Formula for number of eggs in a year: Production count * Health value * 52)
+// calculates expected eggs count per year based on parameter (breed) and parameter (health) selections
+// return egg count a float
     public static float calculateExpectedEggs(int chickenBreed, int healthQuality) {
         int eggCount = 0; // variable to store egg count for each breed
         float healthValue = 0; // variable to store health value for selected chicken
@@ -146,6 +153,8 @@ public class BuyingChickens {
     }
 
 // Method: decideKeepOrFry
+// decides if a chicken is of great value, good value, or low value
+// return a string with suggested outcome for chicken
     public static String decideKeepOrFry(float eggsPerYear) {
         if (eggsPerYear > 300) {
             return "Great Value! Consider buying."; // > 300 great value
